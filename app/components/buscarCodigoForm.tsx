@@ -6,10 +6,7 @@ import { useState } from "react";
 
 const BuscarCodigoForm = () => {
   const schemaBuscarCodigo = z.object({
-    codigoFacturacion: z
-      .number({ required_error: "Cód. de facturación necesario.", invalid_type_error: "El código es inválido" })
-      .min(1)
-      .max(10),
+    codigoFacturacion: z.number({ required_error: "Cód. de facturación necesario.", invalid_type_error: "El código es inválido" }).min(1),
   });
   type SchemaBuscarCodigo = z.infer<typeof schemaBuscarCodigo>;
   const errorForm = (mensaje: string) => {
